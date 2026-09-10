@@ -10,6 +10,10 @@ import RecommendationsPage from './pages/Recommendations';
 import MultiCloudPage from './pages/MultiCloud';
 import AuditLogsPage  from './pages/AuditLogs';
 import LoginPage      from './pages/Login';
+import EAFPage        from './pages/EAFRecommendations';
+import MetricsPage    from './pages/MetricsDashboard';
+import ResultsPage    from './pages/ResultsDashboard';
+import PaperFiguresPage from './pages/PaperFigures';
 
 // ── Auth Context ──────────────────────────────────────────────────────────────
 export const AuthContext = createContext(null);
@@ -43,9 +47,13 @@ const NAV = [
   { path: '/',               label: '📊 Dashboard' },
   { path: '/costs',          label: '💰 Costs' },
   { path: '/forecast',       label: '🔮 Forecast' },
-  { path: '/recommendations',label: '🤖 AI Recommendations' },
+  { path: '/eaf',            label: '🤖 EAF Optimizer' },
+  { path: '/metrics',        label: '📈 EAF Metrics' },
+  { path: '/results',        label: '🔬 Results & Fixes' },
+  { path: '/figures',        label: '📄 Paper Figures' },
+  { path: '/recommendations',label: '📋 Recommendations' },
   { path: '/multicloud',     label: '☁️ Multi-Cloud' },
-  { path: '/audit',          label: '📋 Audit Logs' },
+  { path: '/audit',          label: '🗂 Audit Logs' },
 ];
 
 function Layout({ children }) {
@@ -100,6 +108,10 @@ export default function App() {
           <Route path="/costs"          element={<PrivateRoute><CostPage /></PrivateRoute>} />
           <Route path="/forecast"       element={<PrivateRoute><ForecastPage /></PrivateRoute>} />
           <Route path="/recommendations"element={<PrivateRoute><RecommendationsPage /></PrivateRoute>} />
+          <Route path="/eaf"            element={<PrivateRoute><EAFPage /></PrivateRoute>} />
+          <Route path="/metrics"        element={<PrivateRoute><MetricsPage /></PrivateRoute>} />
+          <Route path="/results"        element={<PrivateRoute><ResultsPage /></PrivateRoute>} />
+          <Route path="/figures"        element={<PrivateRoute><PaperFiguresPage /></PrivateRoute>} />
           <Route path="/multicloud"     element={<PrivateRoute><MultiCloudPage /></PrivateRoute>} />
           <Route path="/audit"          element={<PrivateRoute><AuditLogsPage /></PrivateRoute>} />
         </Routes>

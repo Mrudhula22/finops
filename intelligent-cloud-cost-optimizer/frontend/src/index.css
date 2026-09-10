@@ -2,7 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-body { @apply bg-gray-950 text-gray-100 font-sans; }
-::-webkit-scrollbar { width: 6px; }
+/* ── Base font size fix ─────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+}
+
+body {
+  @apply bg-gray-950 text-gray-100;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Make all text bigger across the app ────────────────────────────── */
+p, span, div, li, td, th, label, input, button, select, textarea {
+  font-size: inherit;
+}
+
+/* ── Headings ───────────────────────────────────────────────────────── */
+h1 { font-size: 1.6rem;  font-weight: 700; }
+h2 { font-size: 1.3rem;  font-weight: 600; }
+h3 { font-size: 1.1rem;  font-weight: 600; }
+
+/* ── Override Tailwind text-xs / text-sm to be readable ─────────────── */
+.text-xs  { font-size: 0.82rem !important; }
+.text-sm  { font-size: 0.95rem !important; }
+.text-base{ font-size: 1.05rem !important; }
+.text-lg  { font-size: 1.2rem  !important; }
+.text-xl  { font-size: 1.4rem  !important; }
+.text-2xl { font-size: 1.6rem  !important; }
+.text-3xl { font-size: 2rem    !important; }
+
+/* ── Scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { @apply bg-gray-900; }
 ::-webkit-scrollbar-thumb { @apply bg-gray-600 rounded; }
+
+/* ── Sidebar nav links ──────────────────────────────────────────────── */
+nav a {
+  font-size: 0.95rem !important;
+}
+
+/* ── Table text ─────────────────────────────────────────────────────── */
+table { font-size: 0.92rem; }
+th, td { font-size: 0.92rem; }
+
+/* ── Input / button ─────────────────────────────────────────────────── */
+input, button, select {
+  font-size: 0.95rem !important;
+}
+
+/* ── Pre / code blocks (Terraform) ─────────────────────────────────── */
+pre, code {
+  font-size: 0.82rem !important;
+  line-height: 1.5;
+}

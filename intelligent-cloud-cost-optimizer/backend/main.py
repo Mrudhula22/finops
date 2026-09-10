@@ -21,6 +21,9 @@ from api.recommendations import router as recommendations_router
 from api.multicloud      import router as multicloud_router
 from api.execution       import router as execution_router
 from api.dashboard       import router as dashboard_router
+from api.eaf             import router as eaf_router
+from api.metrics         import router as metrics_router
+from api.unified         import router as unified_router
 
 logging.basicConfig(
     level=logging.INFO,
@@ -49,8 +52,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "*"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -62,6 +65,9 @@ app.include_router(forecast_router,        prefix="/api/forecast",        tags=[
 app.include_router(recommendations_router, prefix="/api/recommendations", tags=["Recommendations"])
 app.include_router(multicloud_router,      prefix="/api/multicloud",      tags=["Multi-Cloud"])
 app.include_router(execution_router,       prefix="/api/execution",       tags=["Execution"])
+app.include_router(eaf_router,             prefix="/api/eaf",             tags=["EAF Pipeline"])
+app.include_router(metrics_router,         prefix="/api/metrics",         tags=["Metrics"])
+app.include_router(unified_router,         prefix="/api/unified",         tags=["Unified"])
 
 
 @app.get("/health", tags=["Health"])
